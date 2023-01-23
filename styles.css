@@ -1,0 +1,17 @@
+body {background-color:white;
+      background-image: url(images/home_background.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+}
+h1   {color:white;
+}
+h2   {color:white;
+}
+p    {color:black; 
+      font-size:12px;
+      }
+a    {color:white;
+      font-size:12px;
+      margin: 15px;
+}

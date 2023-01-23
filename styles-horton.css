@@ -1,0 +1,23 @@
+body{
+    background: repeating-linear-gradient(
+    45deg,
+    #848ab1,
+    #848ab1 10px,
+    #8086a8 10px,
+    #747a9b 20px
+    );
+}
+p {
+    background-color: #747a9b;
+    position: relative;
+    text-align: center;
+}
+
+h1 {
+    display:inline;
+    padding: 5%;
+    opacity: .8;
+    top: 0;
+    position: sticky;
+
+}

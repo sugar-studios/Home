@@ -1,0 +1,52 @@
+body {background-color:white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url(images/gigachad.gif);
+}
+p{
+    font-size: smaller;
+}
+.sideScrollBar {
+    border:1px solid black;
+    width:150px;height:100px;
+    overflow:scroll;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    height: 500px;
+    margin-left: 5%;
+    max-width: 35%;
+    background-color: rgb(195, 199, 199);
+}
+#sideScrollHeader {
+    background-color: rgb(236, 236, 234);
+    font-family: impact;
+    text-align:center;
+    padding: 2%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    position: absloute;
+}
+#sideScrollLinks {
+    background-color: rgb(173, 173, 171);
+    font-size: medium;
+    font-family:cursive;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 5%;
+}
+#mainWindow {
+    margin-left: 20%;
+    position: fixed;
+    background-color: antiquewhite; 
+    display: flex; 
+    top: 25%;
+
+}
+
+#gameSizeButtons {
+    display: flex;
+    margin-right: 50%;
+    position: relative;
+    margin-left: 90%;
+}

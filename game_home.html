@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lnag="en">
+<head>
+    <link rel = "stylesheet" href="game_styles.css">
+    <title>Game Hub</title>
+    <script>
+        function fullscreen() {
+          document.getElementById("mainWindow").style.top = "5%"
+          document.getElementById("mainWindow").style.height = "85%"; 
+          document.getElementById("MainWindow").style.width = "80%";        
+        }
+    </script>
+
+    <script>
+        function minmize() {
+            document.getElementById("mainWindow").style.top = "25%"
+            document.getElementById("mainWindow").style.height = "55%"; 
+            document.getElementById("MainWindow").style.width = "50%";     
+        }
+    </script>
+
+    <script>
+        function getImageTag() {
+        var imageURLs = [
+          "images/gigacgad.gif",
+          "images/game_background.jpg"];    
+        var img = '<img src=\"';
+        var randomIndex = Math.floor(Math.random() * imageURLs.length);
+        img += imageURLs[randomIndex];
+        img += '\" alt=\"background\"/>';
+        return img;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="gameSizeButtons">
+        <button type="button" onclick="fullscreen()">FullScreen</button>
+        <button type="button" onclick="minmize()">minmize!</button>  
+    </div>
+
+    <div class="sideScrollBar" style="display: flex">
+        <article>
+            <header id="sideScrollHeader">
+                <h3><pre><b>GAME  INDEX</b></pre></h3>
+            </header>
+            <article id="sideScrollLinks">
+                <p>scroll for more games!</p>
+                <a href="Index.html" target="_self" style="color: black;font-family: sans-serif; font-size: small;"><b>BACK TO HOME</b></a>
+                <br><br><br>
+                <a href="cookieClicker.html" target="mainWindow" style="color:black">Cookie Clicker</a>
+                <br><br><br>
+                <a href="https://diekmann.github.io/wasm-fizzbuzz/doom/" target="mainWindow" style="color: black;">Doom</a>
+                <br><br><br>
+                <a href="snake.html" target="mainWindow" style="color: black;">Snake</a>
+                <br><br><br>
+                <a href="https://www.lumpty.com/amusements/Games/Tetris/tetris.html" target="mainWindow" style="color:black">Tetris</a>
+                <br><br><br>
+                <a href="https://diekmann.github.io/wasm-fizzbuzz/doom/" target="mainWindow" style="color: black;">Doom</a>
+                <br><br><br>
+                <a href="snake.html" target="mainWindow" style="color: black;">Snake</a>
+                <br><br><br>
+                <a href="index.html" target="mainWindow" style="color:black">Cookie Clicker</a>
+                <br><br><br>
+                <a href="https://diekmann.github.io/wasm-fizzbuzz/doom/" target="mainWindow" style="color: black;">Doom</a>
+                <br><br><br>
+                <a href="snake.html" target="mainWindow" style="color: black;">Snake</a>
+
+            </article>
+        </article>
+    </div>
+
+    <div>
+        <iframe id="mainWindow" src="game_home_home.html" height="55%" width="65%" title="Game Window" name="mainWindow"></iframe> 
+    </div>
+
+</body>
+</html>

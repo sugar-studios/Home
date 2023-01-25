@@ -1,233 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
-<script type="text/javascript">
-    window.cookieconsent_options = {"message":"Unsurprisingly, this website uses cookies for ads and traffic analysis.","dismiss":"Got it!","learnMore":"Learn more","link":"http://orteil.dashnet.org/cookieconsentpolicy.html","target":"_blank","theme":"http://orteil.dashnet.org/cookieconsent.css","domain":"dashnet.org"};
-</script>
+    <title>HTML Exploration</title>
+    <link rel = "stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="/images/icons/favicon.ico">
+    <style>
+        .left_links {
+            position: fixed;
+            display: inline-block;
+            border: 5px solid black;
+            margin-left:5%;
+            background-image: url(images/home-left_links.jpg);
+            background-position: fixed;
+        }
+        .right_links {
+            position: fixed;
+            display: flexbox;
+            border: 5px solid black;
+            margin-left: 80%;
+            background-image: url(images/home-left_links.jpg);
+            background-position: fixed;
+        }
+        .main_text { 
+            display: flexbox;
+            background-color: antiquewhite;
+            padding: 2.5%;
+            margin-right: 25%;
+            margin-left: 25%;
+            text-align: center;
+        }
+    </style>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
-
-<title>Cookie Clicker</title>
-<!--
-Code and graphics copyright Orteil, 2013-2019
-Feel free to alter this code to your liking, but please do not re-host it, do not profit from it and do not present it as your own.
--->
-
-<meta name="viewport" content="width=900, initial-scale=1">
-<link rel="shortcut icon" href="img/favicon.ico" />
-<!--<link href="https://fonts.googleapis.com/css?family=Kavoon&subset=latin,latin-ext" rel="stylesheet" type="text/css">-->
-<link href='https://fonts.googleapis.com/css?family=Merriweather:900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<script src="showads.js"></script><!-- this just detects adblockers so we can adjust the layout and play nice -->
-<script src="base64.js"></script>
-<script src="main.js?v=2.058"></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-8491708950677704",
-          enable_page_level_ads: true
-     });
-</script>
-<link href="style.css?v=2.050" rel="stylesheet" type="text/css">
-<!--[if IE]>
-<style type="text/css">
-	#ifIE9{display:block;}
-</style>
-<![endif]-->
-
-<!--[if lt IE9]><script src="excanvas.compiled.js"></script><![endif]-->
+    <script type="text/javascript">
+        var imageURLs = [
+          "images/ads/dude.jpg",
+          "images/ads/go.jpg"
+        ];
+        function getImageTag() {
+        var img = '<img src=\"';
+        var randomIndex = Math.floor(Math.random() * imageURLs.length);
+        img += imageURLs[randomIndex];
+        img += '\" alt=\"3rd Party Ad\"/>';
+        return img;
+        }
+  </script>
 
 </head>
 <body>
 
-<div id="wrapper">
 
-	<div id="topBar">
-		<div><b>Cookie Clicker</b>&trade; &copy; <a href="http://orteil.dashnet.org" target="_blank" id="topbarOrteil">Orteil</a>, 2019 - <a href="http://dashnet.org" target="_blank" id="topbarDashnet">DashNet</a></div>
-		<div><a href="http://twitter.com/orteil42" target="_blank" id="topbarTwitter">twitter</a></div>
-		<div><a href="http://orteil42.tumblr.com" target="_blank" id="topbarTumblr">tumblr</a></div>
-		<!--<div><a href="http://forum.dashnet.org" target="_blank">Official forum</a></div>-->
-		<div style="position:relative;"><div style="width:22px;height:32px;background:url(img/discord.png);position:absolute;left:0px;top:0px;pointer-events:none;"></div><a href="https://discordapp.com/invite/cookie" target="_blank" style="padding-left:16px;" id="topbarDiscord">Discord</a></div>
-		<div style="position:relative;"><div style="width:25px;height:32px;background:url(img/weeHoodie.png);position:absolute;left:-2px;top:0px;pointer-events:none;"></div><a class="blueLink" href="http://www.redbubble.com/people/dashnet" target="_blank" style="padding-left:12px;" id="topbarMerch">Merch!</a></div>
-		<div style="position:relative;"><div style="width:22px;height:32px;background:url(img/patreon.png);position:absolute;left:0px;top:0px;pointer-events:none;"></div><a class="orangeLink" href="https://www.patreon.com/dashnet" target="_blank" style="padding-left:16px;" id="topbarPatreon">Patreon</a></div>
-		<div style="position:relative;display:none;font-weight:bold;" id="heralds"><div style="position:absolute;top:-4px;width:31px;height:39px;background:url(img/heraldFlag.png);left:50%;margin-left:-15px;pointer-events:none;"></div><div id="heraldsAmount" style="position:relative;z-index:10;text-shadow:0px 1px 0px #000,0px 0px 6px #ff00e4;color:#fff;">-</div></div>
-		<div><a class="lightblueLink" style="font-weight:bold;" href="https://play.google.com/store/apps/details?id=org.dashnet.cookieclicker" target="_blank" id="topbarMobileCC">Cookie Clicker for Android</a></div>
-		<div><a href="http://orteil.dashnet.org/randomgen/" target="_blank" id="topbarRandomgen">RandomGen</a></div>
-		<div><a href="http://orteil.dashnet.org/igm/" target="_blank" id="topbarIGM">Idle Game Maker</a></div>
-		<div id="links" class="hoverer">
-			Other versions
-			<div class="hoverable">
-			<a href="../" target="_blank" id="linkVersionLive">Live version</a>
-			<a href="beta" target="_blank" id="linkVersionBeta">Try the beta!</a>
-			<a href="http://orteil.dashnet.org/cookieclicker/v10466" target="_blank" id="linkVersionOld">v. 1.0466</a>
-			<a href="http://orteil.dashnet.org/experiments/cookie/" target="_blank">Classic</a>
-			</div>
-		</div>
-	</div>
+<!-- Page Header -->
+<div>
+<h1 style="font-family:sans-serif; text-align:center;"> HTML </h1>
+<h2 style="font-family:sans-serif; text-align:center;">Exploration</h2>
+<hr>
+</div> 
 
-	<div id="game">
-		<div id="javascriptError">
-			<div id="loader">
-				<div class="spinnyBig"></div>
-				<div class="spinnySmall"></div>
-				<div id="loading" class="title">Loading...</div>
-				<div id="failedToLoad" class="title">This is taking longer than expected.<br>
-				<div style="font-size:65%;line-height:120%;">Slow connection? If not, please make sure your javascript is enabled, then refresh.<br>
-				If problems persist, this might be on our side - wait a few minutes, then hit ctrl+f5!</div></div>
-				<div id="ifIE9" class="title" style="font-size:100%;line-height:120%;">Your browser may not be recent enough to run Cookie Clicker.<br>You might want to update, or switch to a more modern browser such as Chrome or Firefox.</div>
-				<!--<div class="title">Oops, looks like we've got a problem.</div>
-				<div>Please bear with us while we fix it.<br>Your save is safe, don't worry!</div>-->
-			</div>
-		</div>
+<!--MAIN BODY-->
+<div style="display:flex; flex-direction:row;">
+    
+    <!--Main Text-->
+    <div class="main_text">
+        <p title='Im just some boring text' style="font-family:verdana;"> This is a html and <abbr title="CSS">cascading script something</abbr> </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit duis tristique. Turpis massa tincidunt dui ut ornare lectus. Metus aliquam eleifend mi in nulla posuere sollicitudin. Accumsan sit amet nulla facilisi. Porttitor lacus luctus accumsan tortor. Sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Mollis aliquam ut porttitor leo a. Porta nibh venenatis cras sed felis eget velit aliquet. Sed risus ultricies tristique nulla aliquet enim tortor at auctor.
 
-		<canvas id="backgroundCanvas"></canvas>
-		
-		<div id="goldenCookie" class="goldenCookie"></div>
-		<div id="seasonPopup" class="seasonPopup"></div>
-		<div id="shimmers"></div>
-		<div id="alert"></div>
-		<div id="particles"></div>
-		<div id="sparkles" class="sparkles"></div>
-		<div id="notes"></div>
-		<div id="darken"></div>
-		<div id="toggleBox" class="framed prompt"></div>
-		<div id="promptAnchor"><div id="prompt" class="framed"><div id="promptContent"></div><div class="close" onclick="PlaySound('snd/tick.mp3');Game.ClosePrompt();">x</div></div></div>
-		<div id="versionNumber" class="title"></div>
-		<div id="ascend">
-			<div id="ascendBG"></div>
-			<div id="ascendZoomable"><div id="ascendContent"><div id="ascendUpgrades" style="position:absolute;"></div></div></div>
-			<div id="ascendOverlay"></div>
-		</div>
-		
-		<div id="debug"><div id="devConsole" class="framed"></div><div id="debugLog"></div></div>
-		
-		<div id="sectionLeft" class="inset">
-			<canvas id="backgroundLeftCanvas" style="z-index:5;"></canvas>
-			<div class="blackFiller"></div>
-			<div class="blackGradient"></div>
-			<div id="sectionLeftInfo"></div>
-			<div id="cookies" class="title"></div>
-			<div id="bakeryNameAnchor"><div id="bakeryName" class="title"></div></div>
-			<div id="specialPopup" class="framed prompt offScreen"></div>
-			<div id="buffs" class="crateBox"></div>
-			<div id="cookieAnchor">
-				<div id="bigCookie"></div>
-				<div id="cookieNumbers"></div>
-			</div>
-			<div id="sectionLeftExtra"></div>
-		</div>
+        Egestas congue quisque egestas diam in arcu cursus. Elementum tempus egestas sed sed risus. Bibendum neque egestas congue quisque egestas diam in arcu. Rhoncus dolor purus non enim praesent. Eget aliquet nibh praesent tristique magna. Platea dictumst vestibulum rhoncus est. Nunc scelerisque viverra mauris in aliquam sem fringilla ut. Senectus et netus et malesuada fames ac turpis. Magna etiam tempor orci eu. Quam lacus suspendisse faucibus interdum posuere lorem ipsum. Sed pulvinar proin gravida hendrerit. Imperdiet proin fermentum leo vel orci porta non pulvinar. Gravida cum sociis natoque penatibus et magnis dis.
 
-		<div class="separatorLeft"></div>
-		<div class="separatorRight"></div>
+        Et sollicitudin ac orci phasellus egestas. Mattis pellentesque id nibh tortor id. Ac tortor dignissim convallis aenean et tortor. Ac auctor augue mauris augue neque gravida in. Cras ornare arcu dui vivamus arcu felis bibendum. Tincidunt nunc pulvinar sapien et ligula ullamcorper. Elit eget gravida cum sociis natoque penatibus et magnis dis. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Cursus turpis massa tincidunt dui ut. Nec ultrices dui sapien eget mi proin. Arcu odio ut sem nulla pharetra diam sit amet nisl. Senectus et netus et malesuada fames. Aenean sed adipiscing diam donec. Neque convallis a cras semper auctor neque vitae tempus. Pharetra diam sit amet nisl suscipit adipiscing. Amet dictum sit amet justo donec enim diam. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Vel pharetra vel turpis nunc. Lobortis scelerisque fermentum dui faucibus. Euismod elementum nisi quis eleifend quam.
 
-		<div id="sectionMiddle" class="inset">
-			<div id="comments" class="inset title">
-				<div id="prefsButton" class="button">Options</div>
-				<div id="statsButton" class="button">Stats</div>
-				<div id="logButton" class="button"><div id="checkForUpdate">New update!</div>Info</div>
-				<div id="legacyButton" class="button">Legacy<div id="ascendMeterContainer" class="smallFramed meterContainer"><div id="ascendMeter" class="meter filling"></div></div><div class="roundedPanel" id="ascendNumber"></div><div id="ascendTooltip" class="framed"></div></div>
-				<div id="commentsTextBelow" class="commentsText"></div>
-				<div id="commentsText" class="commentsText"></div>
-				<div class="separatorBottom"></div>
-			</div>
-			<div id="centerArea">
-				<div id="buildingsTitle" class="inset title zoneTitle">Buildings</div>
-				<div id="buildingsMaster"></div>
-				<div id="rows"></div>
-				<div id="menu"></div>
-				<!--
-				<div id="donateBox">
-					<form target="_blank" action="https://www.paypal.com/cgi-bin/webscr" method="post" id="donate" style="margin:0px 16px;">
-					<input type="hidden" name="cmd" value="_s-xclick">
-					<input type="hidden" name="hosted_button_id" value="BBN2WL3TC6QH4">
-					<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
-					<img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
-					</form>
-					<small>Help us keep developing the game!</small>
-				</div>
-				-->
-			</div>
-		</div>
+        Eget aliquet nibh praesent tristique magna sit amet purus gravida. Purus gravida quis blandit turpis cursus. Morbi tristique senectus et netus et malesuada fames ac. Ornare arcu dui vivamus arcu. Donec adipiscing tristique risus nec. Proin sagittis nisl rhoncus mattis rhoncus. Purus in massa tempor nec feugiat nisl pretium. Facilisi morbi tempus iaculis urna id. Donec massa sapien faucibus et molestie ac. Dictum non consectetur a erat nam. In ante metus dictum at tempor commodo. In tellus integer feugiat scelerisque varius. Lectus nulla at volutpat diam. Sit amet mauris commodo quis imperdiet massa. Tortor id aliquet lectus proin. At imperdiet dui accumsan sit amet nulla. Velit scelerisque in dictum non consectetur a erat.
 
-		<div id="sectionRight" class="inset">
-			<div class="ifNoAds" style="width:300px;text-align:center;padding:8px 0px;background:rgba(0,0,0,0.95);font-size:10px;opacity:0.5;text-shadow:0px 0px 2px #000,0px 1px 0px #000;text-align:center;">
-				Cookie Clicker is mainly supported by ads.<br>Consider unblocking our site or checking out our <a href="https://www.patreon.com/dashnet" target="_blank">Patreon</a>!
-			</div>
-			<div id="smallSupport" style="width:300px;text-align:center;padding-bottom:40px;background:rgba(0,0,0,0.5);position:relative;z-index:100;">
-				
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Cookie Clicker Header Responsive -->
-				<ins class="adsbygoogle"
-					 style="display:block;margin:auto;width:300px;max-height:300px;overflow:hidden;"
-					 data-ad-format="rectangle"></ins>
-				<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
-				
-				<div class="supportComment">^ Sponsored link ^</div>
-				<div class="fixedBottom">
-					<a href="Hone.html">
-						<img title = "Return to home" src="Hone.html" style = "width:125px;height:150px;display: inline;position: fixed;top: 0;right: 0">
-					</a>
-					</div>
-			</div>
-			<div id="store">
-				<div id="storeTitle" class="inset title zoneTitle">Store</div>
-				<div id="toggleUpgrades" class="storeSection upgradeBox"></div>
-				<div id="techUpgrades" class="storeSection upgradeBox"></div>
-				<div id="vaultUpgrades" class="storeSection upgradeBox"></div>
-				<div id="upgrades" class="storeSection upgradeBox"></div>
-				<div id="products" class="storeSection"></div>
-			</div>
-			
-			<div id="detectAds" class="adBanner" style="background:transparent;width:1px;height:1px;"></div>
-			<div id="support" style="margin-top:130px;">
-				<div class="supportComment">v Sponsored links v</div>
-				<div style="position:relative;">
-				
-					<div style="position:relative;z-index:100;min-height:250px;">
-					
-						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-						<!-- Cookie Clicker Responsive -->
-						<ins class="adsbygoogle"
-							 style="display:block;margin:auto;"
-							 data-ad-client="ca-pub-8491708950677704"
-							 data-ad-slot="9780186019"
-							 data-ad-format="auto"
-							 data-full-width-responsive="true"></ins>
-						<script>
-						(adsbygoogle = window.adsbygoogle || []).push({});
-						</script>
-						
-						<div style="height:16px;"></div>
-						
-						<!-- AdventureQuest Worlds banner -->
-						<a class="ad" id="aqad" href="http://www.aq.com/landing/cookie/?utm_campaign=AQW_CookieClicker&utm_source=CookieClicker" target="_blank" title="AdventureQuest Worlds" style="background:url(img/aqworldsbanner.jpg) no-repeat;width:300px;height:64px;display:block;position:relative;margin:0px auto;">
-						</a>
-						
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		
-		<div id="focusButtons">
-			<div id="focusLeft" class="title">Cookie</div>
-			<div id="focusMiddle" class="title" style="font-size:80%;padding-top:18px;padding-bottom:14px;">Buildings</div>
-			<div id="focusRight" class="title">Store</div>
-			<div id="focusMenu" class="title">Menu</div>
-		</div>
-		<div id="compactOverlay" class="title">
-			<div id="compactCommentsText" class="commentsText"></div>
-			<div id="compactCookies"></div>
-			<div class="separatorBottom"></div>
-		</div>
-		
-		<div id="tooltipAnchor"><div id="tooltip" class="framed" onMouseOut="Game.tooltip.hide();"></div></div>
+        Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Tortor at auctor urna nunc id cursus metus aliquam. Mauris vitae ultricies leo integer malesuada nunc vel risus. Ultrices dui sapien eget mi proin sed libero enim sed. Arcu vitae elementum curabitur vitae. Ut diam quam nulla porttitor massa id neque aliquam. Magna ac placerat vestibulum lectus mauris. Sed odio morbi quis commodo odio aenean sed adipiscing diam. Non pulvinar neque laoreet suspendisse interdum consectetur. Condimentum id venenatis a condimentum vitae. Sed sed risus pretium quam vulputate dignissim suspendisse.
 
-	</div>
+        Vitae nunc sed velit dignissim sodales ut eu. Quis blandit turpis cursus in hac habitasse platea dictumst. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Suscipit tellus mauris a diam maecenas sed. Tellus molestie nunc non blandit massa enim nec dui nunc. Nibh praesent tristique magna sit amet purus gravida. Egestas congue quisque egestas diam in. Ut aliquam purus sit amet luctus. Fusce id velit ut tortor. Commodo viverra maecenas accumsan lacus vel facilisis. Vulputate odio ut enim blandit volutpat maecenas.
+
+        Neque sodales ut etiam sit amet nisl purus in. Pharetra diam sit amet nisl suscipit adipiscing bibendum. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Placerat in egestas erat imperdiet sed euismod nisi porta. Aenean pharetra magna ac placerat vestibulum lectus. Elementum pulvinar etiam non quam. Dui nunc mattis enim ut. Bibendum est ultricies integer quis. Volutpat lacus laoreet non curabitur gravida. Sit amet luctus venenatis lectus magna fringilla urna porttitor.
+
+        Nunc vel risus commodo viverra. Est velit egestas dui id ornare arcu odio ut sem. A cras semper auctor neque vitae tempus quam pellentesque. Facilisi morbi tempus iaculis urna id. Id faucibus nisl tincidunt eget nullam non nisi. Erat pellentesque adipiscing commodo elit. Facilisi etiam dignissim diam quis enim lobortis. Aliquam sem et tortor consequat id. Urna et pharetra pharetra massa massa ultricies mi quis hendrerit. Convallis aenean et tortor at risus viverra adipiscing. Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc. Neque egestas congue quisque egestas diam in. Ac feugiat sed lectus vestibulum mattis. Pellentesque elit ullamcorper dignissim cras.
+
+        Elementum tempus egestas sed sed risus pretium quam vulputate dignissim. Tristique risus nec feugiat in fermentum posuere urna nec tincidunt. Venenatis lectus magna fringilla urna. Hendrerit dolor magna eget est lorem ipsum dolor. Magna etiam tempor orci eu lobortis. Morbi enim nunc faucibus a. Sed velit dignissim sodales ut eu sem integer vitae. Condimentum lacinia quis vel eros donec ac. Sagittis nisl rhoncus mattis rhoncus urna neque. Et sollicitudin ac orci phasellus egestas tellus. Placerat vestibulum lectus mauris ultrices. Tellus mauris a diam maecenas sed. Semper viverra nam libero justo laoreet sit amet cursus. Ac tortor vitae purus faucibus ornare. Quisque non tellus orci ac auctor augue mauris augue neque.
+
+        Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Neque aliquam vestibulum morbi blandit cursus risus at ultrices mi. Amet mattis vulputate enim nulla aliquet porttitor lacus. Posuere ac ut consequat semper viverra nam. Potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed. Nam aliquam sem et tortor. Et sollicitudin ac orci phasellus egestas. In egestas erat imperdiet sed. Venenatis a condimentum vitae sapien pellentesque habitant. Id porta nibh venenatis cras sed.
+
+        Ac tortor dignissim convallis aenean et tortor at risus viverra. Pellentesque massa placerat duis ultricies lacus sed turpis. Accumsan lacus vel facilisis volutpat est velit egestas. Urna duis convallis convallis tellus id. Eu scelerisque felis imperdiet proin fermentum leo vel orci porta. Ac tortor dignissim convallis aenean et tortor at. In est ante in nibh mauris cursus mattis molestie a. Lorem ipsum dolor sit amet consectetur adipiscing elit. Odio aenean sed adipiscing diam donec. Libero enim sed faucibus turpis in eu mi. Ullamcorper dignissim cras tincidunt lobortis feugiat. Purus in massa tempor nec feugiat nisl pretium fusce id. Vulputate eu scelerisque felis imperdiet proin fermentum. Enim nulla aliquet porttitor lacus luctus accumsan tortor. Nunc sed blandit libero volutpat sed cras. Purus viverra accumsan in nisl nisi. Platea dictumst quisque sagittis purus sit amet. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Semper feugiat nibh sed pulvinar proin gravida.
+
+        In massa tempor nec feugiat nisl. Tristique nulla aliquet enim tortor at. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. In tellus integer feugiat scelerisque. Malesuada fames ac turpis egestas integer eget aliquet nibh praesent. Neque convallis a cras semper auctor neque vitae tempus. Lobortis mattis aliquam faucibus purus in massa. Amet est placerat in egestas. Massa vitae tortor condimentum lacinia quis vel eros donec ac. Nec dui nunc mattis enim. Tempor orci eu lobortis elementum nibh. Feugiat in fermentum posuere urna nec tincidunt. Sagittis eu volutpat odio facilisis mauris sit. Semper quis lectus nulla at. Dictum fusce ut placerat orci nulla. Bibendum neque egestas congue quisque egestas diam. Id diam vel quam elementum pulvinar.
+
+        Quam id leo in vitae turpis massa sed elementum tempus. Gravida cum sociis natoque penatibus et magnis. In nisl nisi scelerisque eu ultrices vitae auctor. Sollicitudin aliquam ultrices sagittis orci. Malesuada pellentesque elit eget gravida cum sociis natoque. Vitae congue mauris rhoncus aenean vel elit. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Aliquam id diam maecenas ultricies mi eget mauris. Egestas egestas fringilla phasellus faucibus scelerisque eleifend. Auctor augue mauris augue neque gravida in fermentum et. Hendrerit dolor magna eget est lorem ipsum dolor. Massa sed elementum tempus egestas sed sed risus pretium. Donec pretium vulputate sapien nec.
+
+        Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Ac ut consequat semper viverra nam libero. Sed vulputate odio ut enim. Dolor morbi non arcu risus quis. Viverra adipiscing at in tellus integer feugiat scelerisque varius morbi. Ornare arcu dui vivamus arcu felis bibendum ut. Eget mi proin sed libero enim sed faucibus turpis. Tortor at risus viverra adipiscing. Faucibus purus in massa tempor. Fringilla ut morbi tincidunt augue interdum velit. Scelerisque mauris pellentesque pulvinar pellentesque habitant. Iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui. Neque vitae tempus quam pellentesque nec nam aliquam sem et. Porttitor rhoncus dolor purus non enim praesent elementum. Ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Nisl tincidunt eget nullam non nisi est sit amet facilisis.
+
+        Nunc sed id semper risus in. Nulla aliquet enim tortor at auctor urna nunc id cursus. Id faucibus nisl tincidunt eget nullam non nisi. Vivamus at augue eget arcu dictum varius duis. Viverra adipiscing at in tellus integer. Vivamus at augue eget arcu dictum. Morbi tristique senectus et netus et malesuada fames. Nulla malesuada pellentesque elit eget gravida cum sociis natoque. Tortor condimentum lacinia quis vel eros. Pharetra vel turpis nunc eget lorem dolor sed viverra.
+
+        Viverra ipsum nunc aliquet bibendum enim facilisis gravida. Egestas congue quisque egestas diam in arcu cursus euismod quis. Amet est placerat in egestas. Nisi est sit amet facilisis magna etiam tempor. Non diam phasellus vestibulum lorem sed. Amet facilisis magna etiam tempor orci eu. Morbi tristique senectus et netus. Maecenas sed enim ut sem viverra. Nullam ac tortor vitae purus. Sit amet luctus venenatis lectus magna fringilla urna. Et pharetra pharetra massa massa.
+
+        Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum. Egestas sed sed risus pretium quam vulputate dignissim suspendisse in. Nulla porttitor massa id neque aliquam. Vulputate odio ut enim blandit. Eros donec ac odio tempor orci. Ac turpis egestas maecenas pharetra convallis posuere morbi. Ultrices mi tempus imperdiet nulla malesuada. Pharetra et ultrices neque ornare aenean euismod elementum. Consectetur purus ut faucibus pulvinar elementum integer. Eget nullam non nisi est sit. Eget magna fermentum iaculis eu non diam phasellus vestibulum. Convallis convallis tellus id interdum velit laoreet id. Malesuada pellentesque elit eget gravida cum. Aliquet enim tortor at auctor urna.
+
+        Etiam dignissim diam quis enim lobortis. Adipiscing at in tellus integer feugiat scelerisque. Bibendum est ultricies integer quis auctor elit. Porttitor rhoncus dolor purus non enim praesent elementum facilisis leo. Diam maecenas ultricies mi eget mauris pharetra et ultrices neque. Leo integer malesuada nunc vel risus. Nulla posuere sollicitudin aliquam ultrices sagittis orci. Id cursus metus aliquam eleifend mi in nulla posuere. Mauris vitae ultricies leo integer malesuada nunc. Interdum consectetur libero id faucibus nisl. Fermentum posuere urna nec tincidunt. Egestas integer eget aliquet nibh praesent tristique magna sit. In fermentum et sollicitudin ac orci. Lobortis mattis aliquam faucibus purus. Leo urna molestie at elementum eu facilisis sed. Ut morbi tincidunt augue interdum velit euismod in. Massa id neque aliquam vestibulum morbi blandit cursus. Odio aenean sed adipiscing diam donec adipiscing tristique risus. Morbi tincidunt ornare massa eget egestas purus.
+
+        Nisl nunc mi ipsum faucibus. Sit amet aliquam id diam maecenas. Mus mauris vitae ultricies leo integer malesuada. Integer eget aliquet nibh praesent tristique. Ut eu sem integer vitae justo. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Semper viverra nam libero justo laoreet sit amet. Suscipit adipiscing bibendum est ultricies. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere lorem. Molestie nunc non blandit massa enim nec dui nunc. Interdum posuere lorem ipsum dolor. Congue eu consequat ac felis donec. Elementum tempus egestas sed sed risus pretium quam vulputate dignissim. Integer malesuada nunc vel risus commodo. Gravida quis blandit turpis cursus in hac habitasse platea. Purus sit amet volutpat consequat mauris nunc congue nisi vitae. Feugiat vivamus at augue eget arcu dictum varius duis at. Aliquam sem et tortor consequat id porta. Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum.
+
+        Ultricies integer quis auctor elit. Integer eget aliquet nibh praesent tristique magna sit amet purus. Amet nulla facilisi morbi tempus iaculis urna id volutpat lacus. Pellentesque eu tincidunt tortor aliquam nulla. Purus gravida quis blandit turpis cursus in. At tellus at urna condimentum mattis pellentesque id nibh. Sit amet aliquam id diam maecenas ultricies mi eget. Duis ultricies lacus sed turpis tincidunt id. Lectus sit amet est placerat in egestas erat imperdiet sed. Purus in mollis nunc sed id.
+        </p>
+        <button type = "button" onclick= message()></button>
+        <script>
+        function message() {
+            alert("You just got a virus!")
+        }
+        </script>
+    </div>
+
+    <!--Left Link table-->
+    <div class="left_links">
+        <p style="text-align: center; font-size: 36px;">
+        Links
+        </p>
+        <a title= 'HortonHearsAWho.pdf' href= horton.html target="_blank">
+            <img src="images/book_button.png" alt="Books" style = "width:125px;height:125px;">
+        </a>
+        <br>
+        <a href="exe_test_folder.zip" download> 
+            <img src= images/file_button.png alt = "files" style = "width: 125px;height:125px;">
+        </a>
+        <br>
+        <a href="game_home.html" target="_self">
+            <img src = images/game_button.png alt="games"  style = "width: 125px;height:125px;">
+        </a>
+        <br>
+
+        
+
+    </div>
+
+    <div class="right_links">
+        <script type="text/javascript">
+                document.write(getImageTag());
+          </script>
+        <br>
+        
+
+    </div>
 
 </div>
 
-</div>
+
+
 </body>
 </html>

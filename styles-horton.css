@@ -7,6 +7,14 @@ body{
     #747a9b 20px
     );
 }
+pre {
+    display: inline-flex;
+    background-color: antiquewhite;
+    margin-left: 20%;
+    margin-top: 0%;
+    padding: 2%;
+  }
+
 p {
     background-color: #747a9b;
     position: relative;
@@ -14,10 +22,12 @@ p {
 }
 
 h1 {
-    display:inline;
+    margin-left: 3.5%;
+    display: flexbox;
     padding: 5%;
     opacity: .8;
     top: 0;
-    position: sticky;
-
+    margin-bottom: 0%;
+    position: absolute;
+    background-color: #9ba1c2;
 }

@@ -17,6 +17,7 @@ p{
     margin-left: 5%;
     max-width: 35%;
     background-color: rgb(195, 199, 199);
+    display: flex;
 }
 #sideScrollHeader {
     background-color: rgb(236, 236, 234);

@@ -1,18 +1,27 @@
 body{
-    background: repeating-linear-gradient(
-    45deg,
-    #848ab1,
-    #848ab1 10px,
-    #8086a8 10px,
-    #747a9b 20px
-    );
+    background-image: url("images/Jojo.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: center;
+    background-attachment: fixed;
 }
 pre {
     display: inline-flex;
-    background-color: antiquewhite;
-    margin-left: 20%;
+    
+    background: repeating-linear-gradient(
+    45deg,
+    antiquewhite,
+    rgb(221, 208, 190) 10px,
+    antiquewhite 10px,
+    rgb(204, 192, 176) 20px
+    );
+    margin-left: 10%;
     margin-top: 0%;
     padding: 2%;
+    border-radius: 15px;
+    border-width: 5px;
+    border-color: rgb(112, 89, 59);
+    border-style: solid;
   }
 
 p {

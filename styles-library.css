@@ -21,7 +21,7 @@ body {
     height: 100px;
     position: fixed;
     animation-name: tabelRise;
-    animation-duration: 4s;
+    animation-duration: 3.5s;
   }
 
 @keyframes tabelRise {
